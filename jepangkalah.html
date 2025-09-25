@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kekalahan Jepang - Histonesia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --paper-bg: #fbf6ec;      /* warna kertas krem */
+      --line-color: rgba(0,0,0,0.06); /* warna garis */
+      --accent: #5B0000;
+      --gold: #FFD700;
+      --body-line-height: 1.75; /* gunakan ini agar teks sejajar garis */
+      --line-gap-px: 28px; /* jarak antar garis */
+    }
+
+    html,body{height:100%}
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg,#e9e7e2 0%, #efeae0 100%); /* lembut di luar buku */
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #222;
+    }
+
+    /* Tombol kembali segitiga kiri (fixed) */
+    .back-button {
+    position: fixed;
+    top: 50%;
+    left: 18px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 30px solid var(--accent);
+    cursor: pointer;
+    z-index: 60;
+    transition: transform .18s ease, border-right-color .18s ease;
+    background: transparent; /* pastikan transparan */
+    box-shadow: none;       /* hilangkan bayangan */
+    border-radius: 0;       /* hilangkan sudut membulat */
+    }
+    .back-button:hover {
+    transform: translateY(-50%) scale(1.05);
+    color: rgb(56, 0, 0);
+    }
+
+
+    header{
+      background: var(--accent);
+      color: var(--gold);
+      z-index: 50;
+    }
+
+    /* Container "buku" - tampil seperti halaman kertas */
+    .book-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 2.25rem 1rem; /* ruang atas bawah di luar "buku" */
+      width: 100%;
+      box-sizing: border-box;
+      flex: 1 0 auto;
+    }
+
+   .book-page {
+    width: 100%;
+    max-width: 920px;
+    background: #f7f1df url("img/paper-texture.jpg") center/cover; /* tekstur kertas tua */
+    border-radius: 6px;
+    padding: 2.25rem 2.5rem;
+    box-shadow:
+      0 10px 25px rgba(0,0,0,0.25),
+      inset 0 2px 5px rgba(255,255,255,0.3),
+      inset 0 -2px 6px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+    filter: contrast(1.05) brightness(0.97);
+  }
+
+  /* Tambahkan efek tepi sobek/kusut */
+  .book-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("img/paper-edges.png") center/cover repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+    /* area teks yang bergaris (ruled paper) */
+    .ruled {
+      position: relative;
+      z-index: 2;
+      /* background garis horizontal */
+      background-image:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent calc(var(--line-gap-px) - 1px),
+          var(--line-color) calc(var(--line-gap-px) - 1px),
+          var(--line-color) var(--line-gap-px)
+        );
+      background-size: 100% var(--line-gap-px);
+      /* memberi jarak supaya teks tidak menempel pinggir */
+      padding: 1rem 0;
+    }
+
+    /* penting: samakan line-height paragraf dengan spacing garis supaya sejajar */
+    .ruled p,
+    .ruled li,
+    .ruled blockquote {
+      line-height: var(--body-line-height);
+      margin: 0 0 0.85rem 0;
+      /* agar teks tidak menutup garis (kontras bagus) */
+      background: linear-gradient(transparent 0, transparent 0);
+      padding-right: 0.1rem;
+    text-align: justify;
+    }
+
+    /* Heading dan gaya teks */
+    h1,h2,h3 { color: var(--accent); margin: 0 0 .6rem 0; }
+    h1{ font-size: 1.75rem; }
+    h2{ font-size: 1.35rem; }
+    h3{ font-size: 1.1rem; }
+
+    .meta {
+      color: #666;
+      font-size: .95rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Video styling agar tampil rapi di "halaman" */
+    .hero-video {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    /* Responsif: kurangi padding di layar kecil */
+    @media (max-width:640px){
+      .book-page{ padding: 1.25rem; }
+      :root{ --line-gap-px: 24px; --body-line-height:1.6; }
+      h1{ font-size:1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- tombol kembali segitiga -->
+  <a href="timeline.html" class="back-button" title="Kembali ke Timeline" aria-label="Kembali ke Timeline"></a>
+
+  <!-- header -->
+  <header class="shadow-md">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <div class="flex items-center gap-3">
+        <h1 class="text-xl font-bold text-[#FFD700]">Histonesia</h1>
+      </div>
+      <nav class="space-x-4">
+        <a href="index.html" class="text-[#FFD700] hover:text-white">Beranda</a>
+        <a href="timeline.html" class="text-[#FFD700] hover:text-white">Timeline</a>
+        <a href="#" class="text-[#FFD700] hover:text-white">Tentang</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- buku -->
+  <div class="book-wrapper">
+    <article class="book-page" role="article" aria-labelledby="title-kekalahan">
+
+      <!-- video -->
+      <div class="hero-video">
+        <video controls autoplay muted playsinline class="w-full" poster="img/video-poster.jpg">
+          <source src="video/jepang_kalah.mp4" type="video/mp4">
+          Browser Anda tidak mendukung video.
+        </video>
+      </div>
+
+      <!-- konten bergaris seperti kertas -->
+      <div class="ruled">
+
+        <!-- Latar belakang -->
+        <section aria-labelledby="latar">
+          <h2 id="latar"><strong>Latar Belakang Kekalahan Jepang</strong></h2>
+          <p>
+            Kekalahan Jepang dalam Perang Dunia II merupakan peristiwa yang menandai berakhirnya upaya
+            ekspansi militer Jepang di Asia Timur dan Pasifik. Setelah pendudukan wilayah yang luas pada
+            akhir 1930-an dan awal 1940-an — termasuk Manchuria, sebagian besar daratan Tiongkok, serta
+            kawasan Asia Tenggara seperti Filipina, Malaya, Birma, dan Hindia Belanda (sekarang Indonesia) —
+            Jepang perlahan menghadapi tekanan yang semakin besar dari kekuatan Sekutu.
+          </p>
+          <p>
+            Seiring berjalannya perang, kapal-kapal perang dan pesawat Jepang menanggung kerugian besar,
+            logistik terganggu akibat blokade laut yang dilakukan oleh Angkatan Laut Amerika Serikat, dan
+            persediaan bahan bakar serta bahan mentah menjadi sangat terbatas. Situasi ini membuat Jepang
+            sulit mempertahankan wilayah-wilayahnya dan memacu serangkaian pertempuran penentuan di Samudera
+            Pasifik.
+          </p>
+        </section>
+
+        <!-- Kronologi -->
+        <section aria-labelledby="kronologi" class="mt-4">
+          <h2 id="kronologi"><strong>Kronologi Kekalahan Militer Jepang</strong></strong></h2>
+          <p>
+            Tentara Sekutu yang dipimpin oleh Amerika Serikat perlahan mendekati daratan utama Jepang.
+            Serangkaian operasi serangan udara dan serangan amfibi menekan posisi Jepang dari laut dan udara.
+            Angkatan Udara Amerika Serikat melakukan pemboman masif terhadap kota-kota dan fasilitas militer Jepang,
+            sementara serangan laut dan pertempuran kepulauan menghasilkan kerugian materiil yang besar bagi Jepang.
+          </p>
+          <p>
+            Pada awal 1945, beberapa pertempuran yang sangat menentukan bagi Jepang terjadi. Pukulan paling telak
+            adalah ketika Jepang kehilangan kendali atas pulau-pulau strategis Iwo Jima pada Maret 1945 dan Okinawa
+            pada Juni 1945. Pertempuran Iwo Jima dan Okinawa berlangsung sengit dan menelan korban besar di kedua sisi,
+            namun kemenangan Sekutu pada posisi-posisi kunci tersebut memungkinkan mereka untuk menggunakan pangkalan
+            udara yang lebih dekat dengan daratan Jepang.
+          </p>
+          <p>
+            Selain itu, kemenangan Sekutu di teater Eropa (dengan kekalahan Jerman pada Mei 1945) meningkatkan moral dan
+            kemampuan operasi Sekutu di Pasifik. Tekanan gabungan dari blokade laut, pemboman strategis, serangan amfibi,
+            dan serangan oleh pasukan darat Sekutu membuat posisi Jepang menjadi semakin tak tertahankan.
+          </p>
+          <p>
+            Pada Agustus 1945, serangkaian peristiwa cepat terjadi: Amerika Serikat menjatuhkan bom atom di Hiroshima (6 Agustus)
+            dan Nagasaki (9 Agustus), sementara Uni Soviet, yang sebelumnya menandatangani pakta non-agresi dengan Jepang pada tahun 1941,
+            secara mendadak membuka front baru di Manchuria dengan melancarkan serangan terhadap pasukan Jepang yang terdesentralisasi.
+            Kombinasi faktor-faktor ini memaksa pimpinan Jepang untuk mempertimbangkan penyerahan.
+          </p>
+        </section>
+
+        <!-- Peristiwa Bom Atom -->
+        <section aria-labelledby="bom" class="mt-4">
+          <h2 id="bom"><strong>Peristiwa Penjatuhan Bom Atom</strong></h2>
+          <p>
+            Pada tanggal 6 Agustus 1945, pesawat B-29 Amerika Serikat bernama <em>Enola Gay</em> menjatuhkan bom atom pertama
+            bernama "Little Boy" di kota Hiroshima. Ledakan menyebabkan kehancuran masif dan korban jiwa yang sangat besar,
+            baik langsung maupun akibat luka bakar dan paparan radiasi dalam beberapa bulan berikutnya.
+          </p>
+          <p>
+            Tiga hari setelahnya, pada 9 Agustus 1945, bom atom kedua yang dinamai "Fat Man" dijatuhkan di Nagasaki. Serangan kedua
+            ini semakin menambah tekanan terhadap pemerintah dan masyarakat Jepang. Dampak humaniter dan infrastruktur dari kedua bom ini
+            sangat parah dan menjadi alasan utama mengapa pimpinan Jepang memutuskan untuk menyerah.
+          </p>
+        </section>
+
+        <!-- Tokoh-tokoh -->
+        <section aria-labelledby="tokoh" class="mt-4">
+          <h2 id="tokoh"><strong>Tokoh-Tokoh Penting</strong></h2>
+          <p>
+            Beberapa tokoh memiliki peran kunci dalam rangkaian peristiwa yang mengarah pada kekalahan Jepang:
+          </p>
+          <ul class="list-disc pl-6">
+            <li><strong>Kaisar Hirohito</strong> — sebagai kepala negara Jepang, pada 15 Agustus 1945 ia menyampaikan pidato yang mengumumkan
+            penerimaan Jepang terhadap Deklarasi Potsdam dan menginstruksikan bangsa untuk menerima penyerahan tanpa syarat. Keputusan ini
+            diambil demi menghindari kehancuran lebih lanjut terhadap rakyat Jepang.</li>
+
+            <li><strong>Harry S. Truman</strong> — Presiden Amerika Serikat saat itu, yang memerintahkan penggunaan bom atom terhadap kota-kota Jepang
+            dengan tujuan untuk memaksa Jepang menyerah dan menghindari invasi darat yang diperkirakan akan menelan korban besar di kedua pihak.</li>
+
+            <li><strong>Jenderal Douglas MacArthur</strong> — Panglima tertinggi Komando Sekutu di Pasifik yang memimpin pendudukan Jepang setelah penyerahan.
+            MacArthur memainkan peran penting dalam administrasi pemerintahan pendudukan dan proses demiliterisasi Jepang.</li>
+
+            <li><strong>Joseph Stalin</strong> — Pemimpin Uni Soviet yang memerintahkan serangan terhadap posisi Jepang di Manchuria pada Agustus 1945, yang turut
+            menambah tekanan militer terhadap Jepang.</li>
+          </ul>
+        </section>
+
+        <!-- Penyerahan -->
+        <section aria-labelledby="penyerahan" class="mt-4">
+          <h2 id="penyerahan"><strong>Penyerahan Jepang</strong></h2>
+          <p>
+            Menyadari situasi yang tak menguntungkan, pada tanggal 15 Agustus 1945 Kaisar Hirohito menyampaikan pidato yang kemudian disebut
+            <em>Gyokuon-hōsō</em>, mengumumkan bahwa Jepang akan menerima syarat-syarat yang diajukan dalam Deklarasi Potsdam. Proses formal
+            penyerahan sendiri dilaksanakan pada 2 September 1945 ketika perwakilan pemerintah Jepang menandatangani instrumen penyerahan di
+            atas kapal perang USS Missouri yang berlabuh di Teluk Tokyo. Tanda tangan ini menandai berakhirnya Perang Dunia II secara resmi.</p>
+        </section>
+
+        <!-- Dampak global -->
+        <section aria-labelledby="dampak" class="mt-4">
+          <h2 id="dampak"><strong>Dampak Global Kekalahan Jepang</strong></h2>
+          <p>
+            Kekalahan Jepang mengakibatkan perubahan geopolitik besar: berakhirnya Perang Dunia II, munculnya Amerika Serikat dan Uni Soviet
+            sebagai kekuatan superpower, dan dimulainya era Perang Dingin. Di dalam negeri Jepang sendiri, pendudukan Sekutu dipimpin oleh
+            Jenderal MacArthur yang mengawasi demiliterisasi, reformasi politik dan ekonomi serta penyusunan konstitusi baru pada 1947.
+          </p>
+        </section>
+
+        <!-- Dampak bagi Indonesia -->
+        <section aria-labelledby="indonesia" class="mt-4">
+          <h2 id="indonesia"><strong>Dampak bagi Indonesia</strong></h2>
+          <p>
+            Kekalahan Jepang berdampak langsung pada masa penjajahan di Nusantara. Jepang yang semula menduduki Indonesia tidak lagi
+            memiliki kekuatan untuk mempertahankan kontrolnya. Dengan kekosongan kekuasaan yang terjadi, para pemimpin nasional segera mengambil
+            inisiatif untuk memproklamasikan kemerdekaan. Hal ini berpuncak pada Proklamasi Kemerdekaan Indonesia yang dibacakan pada
+            tanggal 17 Agustus 1945 oleh Soekarno dan Mohammad Hatta.
+          </p>
+          <p>
+            Sejumlah faktor lokal juga berkontribusi, termasuk pembentukan badan-badan politik dan militer lokal di masa pendudukan Jepang,
+            pendidikan politik yang makin meluas, serta komunikasi intensif antara tokoh-tokoh pergerakan nasional menjelang Agustus 1945.
+          </p>
+        </section>
+
+      </div><!-- /.ruled -->
+
+    </article><!-- /.book-page -->
+  </div><!-- /.book-wrapper -->
+
+  <!-- footer -->
+  <footer class="mt-auto shadow-inner">
+    <div class="max-w-6xl mx-auto text-center p-4 text-[#FFD700]">
+      © 2025 Histonesia. Semua hak cipta dilindungi.
+    </div>
+  </footer>
+
+</body>
+</html>

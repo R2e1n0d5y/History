@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Histonesia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col relative overflow-hidden">
+
+  <!-- Background video -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-20">
+    <source src="img/flag-video.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Overlay putih tipis -->
+  <div class="absolute inset-0 bg-white/30 -z-10"></div>
+
+  <!-- Navbar coklat transparan -->
+  <header class="z-30 relative bg-[#5B0000]/80 shadow-md">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-xl font-bold text-white">Histonesia</h1>
+      <nav class="space-x-4">
+        <a href="#" class="text-white hover:text-yellow-200">Beranda</a>
+        <a href="#" class="text-white hover:text-yellow-200">Materi</a>
+        <a href="#" class="text-white hover:text-yellow-200">Tentang</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Konten utama -->
+  <main class="flex-grow flex flex-col items-center justify-center text-center z-20 px-6">
+    <!-- Tagline -->
+    <p class="text-base md:text-xl lg:text-4xl text-gray-900/90 italic drop-shadow mb-7 leading-relaxed tracking-wide text-center"
+   style="font-family: 'Brush Script MT', cursive;"> 
+        Untukmu, dari 1945 :<br>
+        <span class="not-italic font-medium">Semangat yang tak pernah padam.</span>
+    </p>
+
+    <!-- Tombol merah dengan efek zoom -->
+    <a href="timeline.html"
+        class="px-6 py-2.5 bg-[#5B0000] text-white text-lg font-semibold rounded-lg shadow-md transform transition duration-300 hover:scale-100 hover:bg-[#F3F2EC] text-red-600 hover:text-[#5B0000] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5B0000]">
+        Mulai Perjalanan
+    </a>
+  </main>
+
+  <!-- Footer coklat transparan -->
+  <footer class="mt-auto z-30 bg-[#5B0000]/80 shadow-inner">
+    <div class="max-w-6xl mx-auto text-center p-4 text-white">
+      © 2025 Histonesia. Semua hak cipta dilindungi.
+    </div>
+  </footer>
+</body>
+</html>

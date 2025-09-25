@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Histonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS Dasar */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('img/timeline.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header, footer {
+            background-color: rgb(91, 0, 0);
+            position: relative;
+            z-index: 10;
+        }
+
+        main {
+            flex-grow: 1;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Gaya Kotak Timeline */
+        .timeline-box {
+            position: absolute;
+            width: 150px;
+            height: 100px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(224, 208, 200, 0.4);
+            border: 2px solid #FFD700;
+        }
+
+        .timeline-box h2 {
+            margin: 0;
+            font-size: 0.9rem;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(91, 0, 0, 0.85); /* Latar teks */
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+            transition: opacity 0.4s ease;
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+        }
+
+        .timeline-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.4s ease;
+            opacity: 0;
+        }
+
+        .timeline-box:hover img {
+            opacity: 1; /* gambar muncul */
+        }
+
+        .timeline-box:hover h2 {
+            opacity: 0; /* teks hilang */
+        }
+
+        /* Posisi setiap kotak */
+        #box-1 { top: 9%; left: 8%; }
+        #box-2 { top: 71%; left: 16%; }
+        #box-3 { top: 9%; left: 25.5%; }
+        #box-4 { top: 71%; left: 34%; }
+        #box-5 { top: 9%; left: 43%; }
+        #box-6 { top: 71%; left: 51.5%; }
+        #box-7 { top: 9%; left: 60.5%; }
+        #box-8 { top: 71%; left: 68.5%; }
+        #box-9 { top: 40%; left: 86%; }
+    </style>
+</head>
+<body>
+
+<header class="z-30 relative shadow-md">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+        <h1 class="text-xl font-bold text-[#FFD700]">Histonesia</h1>
+        <nav class="space-x-4">
+            <a href="index.html" class="text-[#FFD700] hover:text-white">Beranda</a>
+            <a href="#" class="text-[#FFD700] hover:text-white">Materi</a>
+            <a href="#" class="text-[#FFD700] hover:text-white">Tentang</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <a href="jepangKalah.html" id="box-1" class="timeline-box">
+    <h2>Kekalahan<br>Jepang</h2>
+    <img src="img/jepangkalah.jpeg" alt="Kekalahan Jepang">
+  </a>
+
+  <a href="golonganTua.html" id="box-2" class="timeline-box">
+    <h2>Golongan<br>Tua</h2>
+    <img src="img/golongan_tua.jpeg" alt="Golongan Tua">
+  </a>
+
+  <a href="golonganMuda.html" id="box-3" class="timeline-box">
+    <h2>Golongan<br>Muda</h2>
+    <img src="img/golongan_muda.jpeg" alt="Golongan Muda">
+  </a>
+
+  <a href="rengasdengklok.html" id="box-4" class="timeline-box">
+    <h2>Rengasdengklok</h2>
+    <img src="img/rengasdengklok.jpeg" alt="Rengasdengklok">
+  </a>
+
+  <a href="praProklamasi.html" id="box-5" class="timeline-box">
+    <h2>Pra<br>Proklamasi</h2>
+    <img src="img/pra_proklamasi.jpeg" alt="Pra Proklamasi">
+  </a>
+
+  <a href="persiapanProklamasi.html" id="box-6" class="timeline-box">
+    <h2>Persiapan<br>Proklamasi</h2>
+    <img src="img/persiapan_proklamasi.webp" alt="Persiapan Proklamasi">
+  </a>
+
+  <a href="proklamasi.html" id="box-7" class="timeline-box">
+    <h2>Proklamasi</h2>
+    <img src="img/proklamasi.jpeg" alt="Proklamasi">
+  </a>
+
+  <a href="pascaProklamasi.html" id="box-8" class="timeline-box">
+    <h2>Pasca<br>Proklamasi</h2>
+    <img src="img/pasca_proklamasi.jpeg" alt="Pasca Proklamasi">
+  </a>
+
+  <a href="pohonKemerdekaan.html" id="box-9" class="timeline-box">
+    <h2>Pohon<br>Kemerdekaan</h2>
+    <img src="img/pohon_kemerdekaan.jpg" alt="Pohon Kemerdekaan">
+  </a>
+</main>
+
+<footer class="mt-auto z-30 bg-[#5B0000] shadow-inner w-full">
+  <div class="text-center p-4 text-[#FFD700]">
+    © 2025 Histonesia. Semua hak cipta dilindungi.
+  </div>
+</footer>
+
+</body>
+</html>

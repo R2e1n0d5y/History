@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peristiwa Rengasdengklok - Histonesia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #dfe6e9;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-x: hidden;
+      padding-top: 60px; /* untuk navbar */
+    }
+
+    header {
+      background-color: rgb(91, 0, 0);
+      color: #FFD700;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    /* Tombol kembali di sisi kiri halaman */
+    .back-button-page {
+      position: fixed;
+      top: 50%; 
+      left: 10px; 
+      transform: translateY(-50%);
+      font-size: 48px;
+      color: #5B0000;
+      text-decoration: none;
+      cursor: pointer;
+      z-index: 200;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .back-button-page:hover {
+      transform: translateY(-50%) scale(1.2);
+      color: rgb(56, 0, 0);
+    }
+
+    /* iPhone mockup */
+    .phone {
+      margin-top: 20px;
+      width: 270px;
+      height: 510px;
+      background: #fff;
+      border: 7px solid #11100e;
+      border-radius: 50px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      position: relative;
+      z-index: 10;
+    }
+
+    .notch {
+      width: 140px;
+      height: 20px;
+      background: #000;
+      border-radius: 0 0 18px 18px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+    }
+
+    .speaker {
+      width: 40px;
+      height: 4.5px;
+      background: #363131;
+      border-radius: 3px;
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .chat-header {
+      background: #5B0000;
+      color: #ffffff;
+      padding: 12px;
+      text-align: left;
+      font-weight: bold;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 15;
+    }
+
+    .chat-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      background: #f5f5f5;
+    }
+
+    .message {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 12px;
+    }
+
+    .profile {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 8px;
+    }
+
+    .bubble {
+      max-width: 70%;
+      padding: 10px 14px;
+      border-radius: 18px;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    .left .bubble {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-bottom-left-radius: 4px;
+    }
+
+    .right {
+      justify-content: flex-end;
+    }
+    .right .bubble {
+      background: #efebc2;
+      border-bottom-right-radius: 4px;
+      margin-left: 8px;
+    }
+    .right .profile {
+      margin-left: 8px;
+      margin-right: 0;
+    }
+
+    .meta {
+      font-size: 0.7rem;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    .narration {
+      align-self: center;
+      max-width: 85%;
+      background: transparent;
+      color: #444;
+      font-size: 0.75rem;
+      font-style: italic;
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .home-button {
+      width: 60px;
+      height: 4.5px;
+      background: #363131;
+      border-radius: 3px;
+      position: bottom;
+      transform: translateX(160%);
+      margin: 4px;
+    }
+
+    footer {
+      margin-top: 20px;
+      width: 100%;
+      background: #5B0000;
+      color: #FFD700;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Tombol kembali di sisi kiri halaman -->
+  <a href="timeline.html" class="back-button-page" title="Kembali ke Timeline">◀</a>
+
+  <!-- Navbar -->
+  <header>
+    <h1 class="text-lg">Histonesia</h1>
+  </header>
+
+  <!-- Phone Mockup -->
+  <div class="phone">
+    <div class="notch">
+      <div class="speaker"></div>
+    </div>
+    <div class="chat-header">Rengasdengklok Chat</div>
+    <div class="chat-container">
+
+      <div class="message right">
+        <div class="bubble">
+          Bung Karno, Jepang sudah kalah. Saatnya kita segera memproklamasikan kemerdekaan!
+          <div class="meta">Wikana • 21:15</div>
+        </div>
+      </div>
+
+      <div class="message right">
+        <div class="bubble">
+          Kalau menunggu terlalu lama, Sekutu akan datang dan mengambil alih. Kita tidak boleh kehilangan momentum!
+          <div class="meta">Wikana • 21:16</div>
+        </div>
+      </div>
+
+      <div class="message left">
+        <div class="bubble">
+          Tenang dulu. Proklamasi harus dilakukan dengan pertimbangan matang.
+          <div class="meta">Soekarno • 21:20</div>
+        </div>
+      </div>
+
+      <div class="message left">
+        <div class="bubble">
+          Jika kita tergesa-gesa, bisa menimbulkan kekacauan. Kita harus menunggu waktu yang tepat.
+          <div class="meta">Soekarno • 21:21</div>
+        </div>
+      </div>
+
+      <div class="narration">
+        Malam 15 Agustus 1945, pemuda mendesak Soekarno dan Hatta agar segera memproklamasikan kemerdekaan.
+      </div>
+
+      <div class="message right">
+        <div class="bubble">
+          Bung, kalau menunggu Sekutu, bangsa kita tidak akan berdaulat. Proklamasi harus segera!
+          <div class="meta">Chairul Saleh • 21:25</div>
+        </div>
+      </div>
+
+      <div class="message right">
+        <div class="bubble">
+          Kalau Bung tidak segera proklamasi, kami akan membawa Bung Karno dan Bung Hatta ke luar Jakarta.
+          <div class="meta">Chairul Saleh • 21:26</div>
+        </div>
+      </div>
+
+      <div class="message left">
+        <div class="bubble">
+          Membawa keluar? Apa maksud kalian?
+          <div class="meta">Mohammad Hatta • 21:27</div>
+        </div>
+      </div>
+
+      <div class="message right">
+        <div class="bubble">
+          Kami akan membawa Bung ke Rengasdengklok agar bisa segera menyatakan kemerdekaan tanpa tekanan Jepang.
+          <div class="meta">Wikana • 21:28</div>
+        </div>
+      </div>
+
+      <div class="message left">
+        <div class="bubble">
+          Baiklah, demi keselamatan bangsa, kita ikut rencana ini.
+          <div class="meta">Soekarno • 21:30</div>
+        </div>
+      </div>
+
+      <div class="message left">
+        <div class="bubble">
+          Kita harus pastikan proklamasi nanti dilakukan di Jakarta. Jangan sampai ada tekanan dari pihak manapun.
+          <div class="meta">Hatta • 21:31</div>
+        </div>
+      </div>
+
+      <div class="narration">
+        Soekarno dan Hatta akhirnya bersedia dibawa ke Rengasdengklok demi keselamatan bangsa, menandai langkah penting menuju kemerdekaan.
+      </div>
+
+    </div>
+    <div class="home-button"></div>
+  </div>
+
+  <footer>
+    © 2025 Histonesia. Semua hak cipta dilindungi.
+  </footer>
+
+</body>
+</html>
