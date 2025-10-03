@@ -1,139 +1,129 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golongan Muda - Komik</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kisah Golongan Muda</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background: #eee;
-      font-family: "Arial", sans-serif;
-      margin: 0;
-      padding: 0;
+      background: #2b0000 url('img/old-paper-texture.jpg') center/cover;
+      background-attachment: scroll;
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+      color: #fff;
     }
 
-    header, footer {
+    header {
       background: #5B0000;
       color: #FFD700;
-      text-align: center;
-      padding: 10px;
-      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 
-    .comic-page {
-      max-width: 900px;
-      margin: 20px auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .panel {
-      background: #fff;
-      border: 4px solid #000;
-      border-radius: 4px;
-      padding: 10px;
+    /* Komik panel */
+    .comic-panel {
+      background: rgba(0,0,0,0.6);
+      border: 4px solid #FFD700;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: 6px 6px 0 #000;
       position: relative;
-      min-height: 200px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      overflow: hidden;
     }
 
-    .panel img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0; left: 0;
-      z-index: 1;
-    }
-
-    .speech {
-      position: relative;
-      background: #fff;
+    /* Bubble narasi */
+    .narration {
+      background: #fff8dc;
+      color: #222;
       border: 2px solid #000;
-      border-radius: 15px;
-      padding: 10px 15px;
-      font-size: 0.9rem;
-      line-height: 1.3;
-      max-width: 70%;
-      z-index: 2;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      box-shadow: 3px 3px 0 #000;
     }
 
-    /* ekor balon dialog */
+    /* Bubble ucapan */
+    .speech {
+      background: #ffffff;
+      color: #000;
+      border: 3px solid #000;
+      border-radius: 50% 50% 50% 0;
+      padding: 1rem 1.2rem;
+      display: inline-block;
+      margin: 1rem 0;
+      position: relative;
+      max-width: 70%;
+      font-weight: 600;
+    }
     .speech::after {
       content: "";
       position: absolute;
-      bottom: -12px; left: 30px;
-      border-width: 12px 10px 0 10px;
-      border-style: solid;
-      border-color: #fff transparent transparent transparent;
-    }
-    .speech::before {
-      content: "";
-      position: absolute;
-      bottom: -14px; left: 29px;
-      border-width: 14px 12px 0 12px;
-      border-style: solid;
-      border-color: #000 transparent transparent transparent;
+      bottom: -20px;
+      left: 30px;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-top-color: #fff;
+      border-left: 0;
+      border-right: 0;
+      margin-left: -10px;
     }
 
-    /* kotak narasi */
-    .narration {
-      position: absolute;
-      top: 8px; left: 8px;
-      background: #FFD700;
-      color: #000;
-      font-weight: bold;
-      padding: 5px 10px;
-      border: 2px solid #000;
-      border-radius: 5px;
-      font-size: 0.85rem;
-      z-index: 2;
+    /* Efek judul membara */
+    .fire-title {
+      font-size: 2.5rem;
+      color: #FFD700;
+      text-shadow: 3px 3px 0 #000, 0 0 12px #ff4500, 0 0 20px #ff6347;
     }
-
   </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col">
 
-<header>
-  Histonesia — Golongan Muda (Komik)
-</header>
+  <!-- Navbar -->
+  <header class="p-4 flex justify-between items-center">
+    <h1 class="font-extrabold text-xl">Histonesia</h1>
+    <nav class="space-x-4">
+      <a href="index.html" class="hover:underline">Beranda</a>
+      <a href="timeline.html" class="hover:underline">Timeline</a>
+    </nav>
+  </header>
 
-<main class="comic-page">
-  <!-- Panel 1 -->
-  <div class="panel">
-    <div class="narration">Para Pemuda Berkumpul</div>
-    <img src="img/manga1.jpg" alt="Pemuda berkumpul">
-    <div class="speech">Kita tidak boleh menunggu lama! Jepang sudah kalah, saatnya bertindak!</div>
-  </div>
+  <!-- Konten ala komik -->
+  <main class="flex-grow max-w-5xl mx-auto p-6">
+    <h2 class="fire-title text-center mb-8">🔥 Kisah Golongan Muda 🔥</h2>
 
-  <!-- Panel 2 -->
-  <div class="panel">
-    <img src="img/manga2.jpg" alt="Diskusi pemuda">
-    <div class="speech">Benar! Proklamasi harus segera diumumkan sebelum sekutu datang!</div>
-  </div>
+    <div class="comic-panel">
+      <div class="narration">
+        Agustus 1945, Jepang telah jatuh. Kekosongan kekuasaan membuat bangsa ini berada di ambang sejarah.
+      </div>
+      <div class="speech">“Bung, jangan tunggu lagi! Kita harus proklamasikan sekarang juga!”</div>
+    </div>
 
-  <!-- Panel 3 -->
-  <div class="panel">
-    <div class="narration">Rapat Rahasia</div>
-    <img src="img/manga3.jpg" alt="Rapat rahasia">
-    <div class="speech">Kita akan membawa Soekarno dan Hatta ke Rengasdengklok agar segera memutuskan!</div>
-  </div>
+    <div class="comic-panel">
+      <div class="narration">
+        Kami, golongan muda, tak sabar menanti. Setiap menit tanpa kemerdekaan adalah bahaya.
+      </div>
+      <div class="speech">“Kalau kita menunda, Belanda akan kembali dan kita kehilangan kesempatan emas ini!”</div>
+    </div>
 
-  <!-- Panel 4 -->
-  <div class="panel">
-    <img src="img/manga4.jpg" alt="Rengasdengklok">
-    <div class="speech">Ini saatnya, Bung! Proklamasi tidak boleh ditunda lagi!</div>
-  </div>
-</main>
+    <div class="comic-panel">
+      <div class="narration">
+        Maka kami membawa Soekarno dan Hatta ke Rengasdengklok, demi memastikan proklamasi diputuskan tanpa ragu.
+      </div>
+      <div class="speech">“Ini bukan penculikan, ini demi masa depan Indonesia!”</div>
+    </div>
 
-<footer>
-  © 2025 Histonesia. Semua hak cipta dilindungi.
-</footer>
+    <div class="comic-panel">
+      <div class="narration">
+        Bara semangat kami adalah nyala api bagi bangsa. Dari darah muda, lahirlah proklamasi yang membebaskan rakyat.
+      </div>
+      <div class="speech">“Sekaranglah waktunya! Merdeka atau mati!”</div>
+    </div>
+  </main>
 
+  <!-- Footer -->
+  <footer class="bg-[#5B0000] text-[#FFD700] text-center p-4">
+    © 2025 Histonesia. Semua hak cipta dilindungi.
+  </footer>
 </body>
 </html>

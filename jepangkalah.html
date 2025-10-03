@@ -18,7 +18,7 @@
     html,body{height:100%}
     body {
       font-family: Georgia, "Times New Roman", serif;
-      background: linear-gradient(180deg,#e9e7e2 0%, #efeae0 100%); /* lembut di luar buku */
+      background: linear-gradient(180deg,#e9e7e2 0%, #efeae0 100%);
       margin: 0;
       display: flex;
       flex-direction: column;
@@ -26,29 +26,27 @@
       color: #222;
     }
 
-    /* Tombol kembali segitiga kiri (fixed) */
+    /* Tombol kembali bulat */
     .back-button {
-    position: fixed;
-    top: 50%;
-    left: 18px;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-right: 30px solid var(--accent);
-    cursor: pointer;
-    z-index: 60;
-    transition: transform .18s ease, border-right-color .18s ease;
-    background: transparent; /* pastikan transparan */
-    box-shadow: none;       /* hilangkan bayangan */
-    border-radius: 0;       /* hilangkan sudut membulat */
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      background: #5B0000;
+      color: white;
+      font-size: 1.7rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      z-index: 60;
     }
     .back-button:hover {
-    transform: translateY(-50%) scale(1.05);
-    color: rgb(56, 0, 0);
+      background: #FFD700;
+      color: #5B0000;
+      transform: translateY(-50%) scale(1.2);
     }
-
 
     header{
       background: var(--accent);
@@ -56,11 +54,10 @@
       z-index: 50;
     }
 
-    /* Container "buku" - tampil seperti halaman kertas */
     .book-wrapper {
       display: flex;
       justify-content: center;
-      padding: 2.25rem 1rem; /* ruang atas bawah di luar "buku" */
+      padding: 2.25rem 1rem;
       width: 100%;
       box-sizing: border-box;
       flex: 1 0 auto;
@@ -69,7 +66,7 @@
    .book-page {
     width: 100%;
     max-width: 920px;
-    background: #f7f1df url("img/paper-texture.jpg") center/cover; /* tekstur kertas tua */
+    background: #f7f1df url("img/paper-texture.jpg") center/cover;
     border-radius: 6px;
     padding: 2.25rem 2.5rem;
     box-shadow:
@@ -82,7 +79,6 @@
     filter: contrast(1.05) brightness(0.97);
   }
 
-  /* Tambahkan efek tepi sobek/kusut */
   .book-page::before {
     content: "";
     position: absolute;
@@ -93,11 +89,9 @@
     pointer-events: none;
   }
 
-    /* area teks yang bergaris (ruled paper) */
     .ruled {
       position: relative;
       z-index: 2;
-      /* background garis horizontal */
       background-image:
         repeating-linear-gradient(
           to bottom,
@@ -107,23 +101,19 @@
           var(--line-color) var(--line-gap-px)
         );
       background-size: 100% var(--line-gap-px);
-      /* memberi jarak supaya teks tidak menempel pinggir */
       padding: 1rem 0;
     }
 
-    /* penting: samakan line-height paragraf dengan spacing garis supaya sejajar */
     .ruled p,
     .ruled li,
     .ruled blockquote {
       line-height: var(--body-line-height);
       margin: 0 0 0.85rem 0;
-      /* agar teks tidak menutup garis (kontras bagus) */
       background: linear-gradient(transparent 0, transparent 0);
       padding-right: 0.1rem;
-    text-align: justify;
+      text-align: justify;
     }
 
-    /* Heading dan gaya teks */
     h1,h2,h3 { color: var(--accent); margin: 0 0 .6rem 0; }
     h1{ font-size: 1.75rem; }
     h2{ font-size: 1.35rem; }
@@ -135,7 +125,6 @@
       margin-bottom: 1rem;
     }
 
-    /* Video styling agar tampil rapi di "halaman" */
     .hero-video {
       width: 100%;
       border-radius: 8px;
@@ -144,7 +133,6 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
 
-    /* Responsif: kurangi padding di layar kecil */
     @media (max-width:640px){
       .book-page{ padding: 1.25rem; }
       :root{ --line-gap-px: 24px; --body-line-height:1.6; }
@@ -154,10 +142,10 @@
 </head>
 <body>
 
-  <!-- tombol kembali segitiga -->
-  <a href="timeline.html" class="back-button" title="Kembali ke Timeline" aria-label="Kembali ke Timeline"></a>
+  <!-- Tombol kembali -->
+  <a href="timeline.html" class="back-button" title="Kembali ke Timeline" aria-label="Kembali ke Timeline">◄</a>
 
-  <!-- header -->
+  <!-- Header -->
   <header class="shadow-md">
     <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
       <div class="flex items-center gap-3">
@@ -171,22 +159,21 @@
     </div>
   </header>
 
-  <!-- buku -->
+  <!-- Buku -->
   <div class="book-wrapper">
     <article class="book-page" role="article" aria-labelledby="title-kekalahan">
 
-      <!-- video -->
+      <!-- Video -->
       <div class="hero-video">
-        <video controls autoplay muted playsinline class="w-full" poster="img/video-poster.jpg">
-          <source src="video/jepang_kalah.mp4" type="video/mp4">
+        <video controls autoplay muted playsinline class="w-full" poster="img/jepang_kalah.mp">
+          <source src="img/jepang_kalah.mp4" type="video/mp4">
           Browser Anda tidak mendukung video.
         </video>
       </div>
 
-      <!-- konten bergaris seperti kertas -->
+      <!-- Isi teks -->
       <div class="ruled">
 
-        <!-- Latar belakang -->
         <section aria-labelledby="latar">
           <h2 id="latar"><strong>Latar Belakang Kekalahan Jepang</strong></h2>
           <p>
@@ -205,9 +192,8 @@
           </p>
         </section>
 
-        <!-- Kronologi -->
         <section aria-labelledby="kronologi" class="mt-4">
-          <h2 id="kronologi"><strong>Kronologi Kekalahan Militer Jepang</strong></strong></h2>
+          <h2 id="kronologi"><strong>Kronologi Kekalahan Militer Jepang</strong></h2>
           <p>
             Tentara Sekutu yang dipimpin oleh Amerika Serikat perlahan mendekati daratan utama Jepang.
             Serangkaian operasi serangan udara dan serangan amfibi menekan posisi Jepang dari laut dan udara.
@@ -234,7 +220,6 @@
           </p>
         </section>
 
-        <!-- Peristiwa Bom Atom -->
         <section aria-labelledby="bom" class="mt-4">
           <h2 id="bom"><strong>Peristiwa Penjatuhan Bom Atom</strong></h2>
           <p>
@@ -249,39 +234,32 @@
           </p>
         </section>
 
-        <!-- Tokoh-tokoh -->
         <section aria-labelledby="tokoh" class="mt-4">
           <h2 id="tokoh"><strong>Tokoh-Tokoh Penting</strong></h2>
-          <p>
-            Beberapa tokoh memiliki peran kunci dalam rangkaian peristiwa yang mengarah pada kekalahan Jepang:
-          </p>
+          <p>Beberapa tokoh memiliki peran kunci dalam rangkaian peristiwa yang mengarah pada kekalahan Jepang:</p>
           <ul class="list-disc pl-6">
             <li><strong>Kaisar Hirohito</strong> — sebagai kepala negara Jepang, pada 15 Agustus 1945 ia menyampaikan pidato yang mengumumkan
             penerimaan Jepang terhadap Deklarasi Potsdam dan menginstruksikan bangsa untuk menerima penyerahan tanpa syarat. Keputusan ini
             diambil demi menghindari kehancuran lebih lanjut terhadap rakyat Jepang.</li>
-
             <li><strong>Harry S. Truman</strong> — Presiden Amerika Serikat saat itu, yang memerintahkan penggunaan bom atom terhadap kota-kota Jepang
             dengan tujuan untuk memaksa Jepang menyerah dan menghindari invasi darat yang diperkirakan akan menelan korban besar di kedua pihak.</li>
-
             <li><strong>Jenderal Douglas MacArthur</strong> — Panglima tertinggi Komando Sekutu di Pasifik yang memimpin pendudukan Jepang setelah penyerahan.
             MacArthur memainkan peran penting dalam administrasi pemerintahan pendudukan dan proses demiliterisasi Jepang.</li>
-
             <li><strong>Joseph Stalin</strong> — Pemimpin Uni Soviet yang memerintahkan serangan terhadap posisi Jepang di Manchuria pada Agustus 1945, yang turut
             menambah tekanan militer terhadap Jepang.</li>
           </ul>
         </section>
 
-        <!-- Penyerahan -->
         <section aria-labelledby="penyerahan" class="mt-4">
           <h2 id="penyerahan"><strong>Penyerahan Jepang</strong></h2>
           <p>
             Menyadari situasi yang tak menguntungkan, pada tanggal 15 Agustus 1945 Kaisar Hirohito menyampaikan pidato yang kemudian disebut
             <em>Gyokuon-hōsō</em>, mengumumkan bahwa Jepang akan menerima syarat-syarat yang diajukan dalam Deklarasi Potsdam. Proses formal
             penyerahan sendiri dilaksanakan pada 2 September 1945 ketika perwakilan pemerintah Jepang menandatangani instrumen penyerahan di
-            atas kapal perang USS Missouri yang berlabuh di Teluk Tokyo. Tanda tangan ini menandai berakhirnya Perang Dunia II secara resmi.</p>
+            atas kapal perang USS Missouri yang berlabuh di Teluk Tokyo. Tanda tangan ini menandai berakhirnya Perang Dunia II secara resmi.
+          </p>
         </section>
 
-        <!-- Dampak global -->
         <section aria-labelledby="dampak" class="mt-4">
           <h2 id="dampak"><strong>Dampak Global Kekalahan Jepang</strong></h2>
           <p>
@@ -291,7 +269,6 @@
           </p>
         </section>
 
-        <!-- Dampak bagi Indonesia -->
         <section aria-labelledby="indonesia" class="mt-4">
           <h2 id="indonesia"><strong>Dampak bagi Indonesia</strong></h2>
           <p>
@@ -306,13 +283,12 @@
           </p>
         </section>
 
-      </div><!-- /.ruled -->
+      </div>
+    </article>
+  </div>
 
-    </article><!-- /.book-page -->
-  </div><!-- /.book-wrapper -->
-
-  <!-- footer -->
-  <footer class="mt-auto shadow-inner">
+  <!-- Footer -->
+  <footer class="mt-auto shadow-inner bg-[#5B0000]">
     <div class="max-w-6xl mx-auto text-center p-4 text-[#FFD700]">
       © 2025 Histonesia. Semua hak cipta dilindungi.
     </div>
