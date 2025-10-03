@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pasca Kemerdekaan - Histonesia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --accent: #5B0000;
+      --gold: #FFD700;
+      --paper-bg: #f8f5ee;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg,#e9e7e2 0%, #efeae0 100%);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #222;
+    }
+
+    header{
+      background: var(--accent);
+      color: var(--gold);
+      z-index: 50;
+    }
+
+    footer {
+      background: var(--accent);
+    }
+
+    /* Tombol kembali */
+    .back-button {
+      position: fixed;
+      top: 50%;
+      left: 18px;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-right: 30px solid var(--accent);
+      cursor: pointer;
+      z-index: 60;
+      transition: transform .18s ease;
+    }
+    .back-button:hover {
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .biru {
+      color: #1E90FF;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- tombol kembali -->
+  <a href="timeline.html" class="back-button" title="Kembali ke Timeline" aria-label="Kembali ke Timeline"></a>
+
+  <!-- header -->
+  <header class="shadow-md">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <div class="flex items-center gap-3">
+        <h1 class="text-xl font-bold text-[#FFD700]">Histonesia</h1>
+      </div>
+      <nav class="space-x-4">
+        <a href="index.html" class="text-[#FFD700] hover:text-white">Beranda</a>
+        <a href="timeline.html" class="text-[#FFD700] hover:text-white">Timeline</a>
+        <a href="#" class="text-[#FFD700] hover:text-white">Tentang</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- konten ala feed instagram -->
+  <main class="flex-1">
+    <div class="max-w-lg mx-auto py-6 px-3 space-y-8">
+      <!-- post 1 fix-->
+      <article class="bg-[var(--paper-bg)] rounded-lg shadow-md overflow-hidden">
+        <!-- header akun -->
+        <div class="flex items-center justify-between px-4 py-2">
+          <div class="flex items-center gap-2">
+            <img src="img/benderaind.png" alt="Profil" class="w-8 h-8 rounded-full object-cover border border-gray-400">
+            <span class="font-semibold text-gray-800">Tokoh Bendera</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 12l-2.5 2.5.5 3.5-3.5.5L15 22l-3-1.5L9 22l-1.5-3-3.5-.5.5-3.5L2 12l2.5-2.5-.5-3.5 3.5-.5L9 2l3 1.5L15 2l1.5 3 3.5.5-.5 3.5L22 12z"/>
+              <path d="M16 9l-4.5 6L8 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+          </div>
+        </div>
+        <!-- foto post -->
+        <img src="img/alat.png" alt="Siaran Proklamasi" class="w-full object-cover">
+        <!-- deskripsi -->
+        <div class="p-4">
+          <p class="text-sm text-gray-700">
+            <strong>Tokoh Bendera</strong> — Setelah pidato dan pembacaan proklamasi selesai, Pengibaran bendera Merah Putih oleh Latief Hendraningrat, S. Suhud dan Surastri Karma. 
+            <br>Rakyat yang hadir dalam upacara tersebut tanpa komando serempak menyanyikan lagu kebangsaan Indonesia Raya.
+            <br><br><span class="biru">#pengibaranResmiPertama</span>
+          </p>
+          <!-- ikon interaksi -->
+          <div class="flex justify-between items-center mt-3 text-gray-600">
+            <div class="flex gap-5">
+              <button class="hover:text-red-600">❤️</button>
+              <button class="hover:text-blue-600">💬</button>
+              <button class="hover:text-green-600">🔗</button>
+            </div>
+            <button class="hover:text-gray-900">🔖</button>
+          </div>
+        </div>
+      </article>
+
+            <!-- post 2 fix-->
+      <article class="bg-[var(--paper-bg)] rounded-lg shadow-md overflow-hidden">
+        <!-- header akun -->
+        <div class="flex items-center justify-between px-4 py-2">
+          <div class="flex items-center gap-2">
+            <img src="img/rri.jpg" alt="Profil" class="w-8 h-8 rounded-full object-cover border border-gray-400">
+            <span class="font-semibold text-gray-800">RRI</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 12l-2.5 2.5.5 3.5-3.5.5L15 22l-3-1.5L9 22l-1.5-3-3.5-.5.5-3.5L2 12l2.5-2.5-.5-3.5 3.5-.5L9 2l3 1.5L15 2l1.5 3 3.5.5-.5 3.5L22 12z"/>
+              <path d="M16 9l-4.5 6L8 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <!-- foto post -->
+        <img src="img/radiojepang.jpg" alt="Siaran Proklamasi" class="w-full object-cover">
+        <!-- deskripsi -->
+        <div class="p-4">
+          <p class="text-sm text-gray-700">
+            <strong>RRI</strong> — Berita kemerdekaan disiarkan oleh Yusuf Ronodipuro melalui radio Jepang, Hoso Kyoku. Namun, tindakan berani ini tidak tanpa risiko. Akibat siaran tersebut, Yusuf mengalami penyiksaan oleh tentara Jepang, dan siaran radio itu akhirnya ditutup
+            <br><br><span class="biru">#RRI</span>
+          </p>
+          <!-- ikon interaksi -->
+          <div class="flex justify-between items-center mt-3 text-gray-600">
+            <div class="flex gap-5">
+              <button class="hover:text-red-600">❤️</button>
+              <button class="hover:text-blue-600">💬</button>
+              <button class="hover:text-green-600">🔗</button>
+            </div>
+            <button class="hover:text-gray-900">🔖</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- post 3 fix-->
+      <article class="bg-[var(--paper-bg)] rounded-lg shadow-md overflow-hidden">
+        <div class="flex items-center justify-between px-4 py-2">
+          <div class="flex items-center gap-2">
+            <img src="img/historiid.png" alt="Profil" class="w-8 h-8 rounded-full object-cover border border-gray-400">
+            <span class="font-semibold text-gray-800">SejarahID</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 12l-2.5 2.5.5 3.5-3.5.5L15 22l-3-1.5L9 22l-1.5-3-3.5-.5.5-3.5L2 12l2.5-2.5-.5-3.5 3.5-.5L9 2l3 1.5L15 2l1.5 3 3.5.5-.5 3.5L22 12z"/>
+              <path d="M16 9l-4.5 6L8 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <img src="img/sebar.png" alt="Siaran Proklamasi" class="w-full object-cover">
+        <div class="p-4">
+          <p class="text-sm text-gray-700">
+            <strong>SSejarahID</strong> — Untuk pertama kalinya, berita proklamasi secara resmi diterima di Sumatera, tepatnya di Bukittinggi Sumatera Barat pada tanggal 17 Agustus 1945 malam hari. 
+            <br><br><span class="biru">#SumateraMendengar</span>
+          </p>
+          <div class="flex justify-between items-center mt-3 text-gray-600">
+            <div class="flex gap-5">
+              <button class="hover:text-red-600">❤️</button>
+              <button class="hover:text-blue-600">💬</button>
+              <button class="hover:text-green-600">🔗</button>
+            </div>
+            <button class="hover:text-gray-900">🔖</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- post 4 fix-->
+      <article class="bg-[var(--paper-bg)] rounded-lg shadow-md overflow-hidden">
+        <div class="flex items-center justify-between px-4 py-2">
+          <div class="flex items-center gap-2">
+            <img src="img/anri.png" alt="Profil" class="w-8 h-8 rounded-full object-cover border border-gray-400">
+            <span class="font-semibold text-gray-800">Arsip Nasional RI</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 12l-2.5 2.5.5 3.5-3.5.5L15 22l-3-1.5L9 22l-1.5-3-3.5-.5.5-3.5L2 12l2.5-2.5-.5-3.5 3.5-.5L9 2l3 1.5L15 2l1.5 3 3.5.5-.5 3.5L22 12z"/>
+              <path d="M16 9l-4.5 6L8 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <img src="img/pasca_proklamasi.jpeg" alt="Siaran Proklamasi" class="w-full object-cover">
+        <div class="p-4">
+          <p class="text-sm text-gray-700">
+            <strong>Arsip Nasional RI</strong> —  Suasana pawai dalam rangka menyambut perayaan Proklamasi Kemerdekaan Indonesia, 18 Agustus 1945. Semarak perayaan HUT RI yang sekarang kita rasakan saat ini, bermula dari ratusan pemuda melakukan pawai di Jalan Pegangsaan Timur tanggal 18 Agustus 1945.
+            <br><br><span class="biru">#pawaipertama</span>
+          </p>
+          <div class="flex justify-between items-center mt-3 text-gray-600">
+            <div class="flex gap-5">
+              <button class="hover:text-red-600">❤️</button>
+              <button class="hover:text-blue-600">💬</button>
+              <button class="hover:text-green-600">🔗</button>
+            </div>
+            <button class="hover:text-gray-900">🔖</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- post 5 fix-->
+      <article class="bg-[var(--paper-bg)] rounded-lg shadow-md overflow-hidden">
+        <div class="flex items-center justify-between px-4 py-2">
+          <div class="flex items-center gap-2">
+            <img src="img/soerasia.png" alt="Profil" class="w-8 h-8 rounded-full object-cover border border-gray-400">
+            <span class="font-semibold text-gray-800">Soeara Asia</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 12l-2.5 2.5.5 3.5-3.5.5L15 22l-3-1.5L9 22l-1.5-3-3.5-.5.5-3.5L2 12l2.5-2.5-.5-3.5 3.5-.5L9 2l3 1.5L15 2l1.5 3 3.5.5-.5 3.5L22 12z"/>
+              <path d="M16 9l-4.5 6L8 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <img src="img/koranpasca.png" alt="Siaran Proklamasi" class="w-full object-cover">
+        <div class="p-4">
+          <p class="text-sm text-gray-700">
+            <strong>Soeara Asia</strong> — menerbitkan berita proklamasi kemerdekaan Indonesia pada 18 Agustus 1945. Ini menjadikannya sebagai surat kabar pertama di Indonesia yang menyampaikan kabar kemerdekaan secara terbuka kepada masyarakat. 
+            <br><br><span class="biru">#suratkabarproklamasipertama</span>
+          </p>
+          <div class="flex justify-between items-center mt-3 text-gray-600">
+            <div class="flex gap-5">
+              <button class="hover:text-red-600">❤️</button>
+              <button class="hover:text-blue-600">💬</button>
+              <button class="hover:text-green-600">🔗</button>
+            </div>
+            <button class="hover:text-gray-900">🔖</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- post 6 fix-->
+      <article class="bg-[var(--paper-bg)] rounded-lg shadow-md overflow-hidden">
+        <div class="flex items-center justify-between px-4 py-2">
+          <div class="flex items-center gap-2">
+            <img src="img/cnn.jpg" alt="Profil" class="w-8 h-8 rounded-full object-cover border border-gray-400">
+            <span class="font-semibold text-gray-800">CNN</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 12l-2.5 2.5.5 3.5-3.5.5L15 22l-3-1.5L9 22l-1.5-3-3.5-.5.5-3.5L2 12l2.5-2.5-.5-3.5 3.5-.5L9 2l3 1.5L15 2l1.5 3 3.5.5-.5 3.5L22 12z"/>
+              <path d="M16 9l-4.5 6L8 12" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <img src="img/ppki.jpeg" alt="Siaran Proklamasi" class="w-full object-cover">
+        <div class="p-4">
+          <p class="text-sm text-gray-700">
+            <strong>CNN</strong> — Sidang Pertama PPKI Tanggal 18 Agustus 1945, Menetapkan UUD 1945, Memilih presiden dan wakil presiden Indonesia, 
+            membentuk Komite Nasional Indonesia Pusat (KNIP).
+            <br><br><span class="biru">#PPKI</span>
+          </p>
+          <div class="flex justify-between items-center mt-3 text-gray-600">
+            <div class="flex gap-5">
+              <button class="hover:text-red-600">❤️</button>
+              <button class="hover:text-blue-600">💬</button>
+              <button class="hover:text-green-600">🔗</button>
+            </div>
+            <button class="hover:text-gray-900">🔖</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer class="mt-auto shadow-inner">
+    <div class="max-w-6xl mx-auto text-center p-4 text-[#FFD700]">
+      © 2025 Histonesia. Semua hak cipta dilindungi.
+    </div>
+  </footer>
+
+</body>
+</html>

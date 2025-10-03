@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Proklamasi Kemerdekaan - Histonesia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --accent: #5B0000;
+      --gold: #FFD700;
+      --paper-bg: #f8f5ee;
+    }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg,#e9e7e2 0%, #efeae0 100%);
+      margin: 0;
+      min-height: 100vh;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--accent);
+      color: var(--gold);
+      z-index: 50;
+    }
+    footer {
+      background: var(--accent);
+    }
+    .split-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      height: calc(100vh - 120px); /* sisa tinggi dikurangi header+footer */
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    .text-box {
+      background: var(--paper-bg);
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- header -->
+  <header class="shadow-md">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-xl font-bold text-[#FFD700]">Histonesia</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="text-[#FFD700] hover:text-white">Beranda</a>
+        <a href="timeline.html" class="text-[#FFD700] hover:text-white">Timeline</a>
+        <a href="#" class="text-[#FFD700] hover:text-white">Tentang</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- audio indonesia raya autoplay -->
+  <audio autoplay loop>
+    <source src="audio/indonesia_raya.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung pemutar audio.
+  </audio>
+
+  <!-- konten utama -->
+  <main class="flex-1">
+    <div class="split-container max-w-6xl mx-auto py-6 px-3">
+
+      <!-- kiri: video proklamasi -->
+      <div class="relative bg-black flex items-center justify-center rounded-lg overflow-hidden shadow-md">
+        <!-- Video -->
+        <video id="videoProklamasi" poster="img/proklamasi.jpeg" class="w-full h-auto">
+          <source src="audio/proklamasi.mp4" type="video/mp4">
+          Browser Anda tidak mendukung video.
+        </video>
+
+        <!-- Tombol Play Overlay -->
+        <button id="playButton"
+          class="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- kanan: teks proklamasi -->
+        <div class="flex flex-col gap-6">
+            <!-- versi tulisan tangan -->
+            <div class="text-box rounded-lg shadow-md">
+                <!-- <h2 class="font-bold text-lg mb-2 text-[var(--accent)]">Naskah Tulisan Tangan</h2> -->
+                <img src="img/proklamasi_tulis.jpg" alt="Naskah Tulisan Tangan" class="w-[350px] rounded shadow mx-auto">
+            </div>
+
+            <!-- versi ketikan -->
+            <div class="text-box rounded-lg shadow-md">
+                <!-- <h2 class="font-bold text-lg mb-2 text-[var(--accent)]">Naskah Ketikan</h2> -->
+                <img src="img/proklamasi_ketik.jpg" alt="Naskah Ketikan" class="w-[350px] rounded shadow mx-auto">
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer class="mt-auto shadow-inner">
+    <div class="max-w-6xl mx-auto text-center p-4 text-[#FFD700]">
+      © 2025 Histonesia. Semua hak cipta dilindungi.
+    </div>
+  </footer>
+
+  <script>
+    // video hanya play saat user klik
+    const video = document.getElementById('videoProklamasi');
+  const playButton = document.getElementById('playButton');
+
+  playButton.addEventListener('click', () => {
+    video.play();
+    playButton.style.display = 'none'; // hilangin tombol play setelah dipencet
+    video.setAttribute("controls", "true"); // tampilkan kontrol setelah play
+  });
+
+  // Kalau video selesai, munculkan lagi tombol play
+  video.addEventListener('ended', () => {
+    playButton.style.display = 'flex';
+    video.removeAttribute("controls"); // sembunyikan kontrol lagi
+  });
+
+  </script>
+
+</body>
+</html>
