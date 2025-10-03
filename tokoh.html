@@ -15,6 +15,29 @@
     }
   </script>
   <style>
+      /* Tombol kembali bundar */
+  .back-btn {
+    position: fixed;
+    top: 18%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: #5B0000;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    z-index: 50;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1;
+  }
+  .back-btn:hover {
+    background: #FFD700;
+    color: #5B0000;
+    transform: translateY(-50%) scale(1.2);
+  }
+
     body { font-family: 'Courier New', Courier, monospace; background:#f5f5f5; }
     header, header *, footer, footer * { font-family: 'Georgia', serif !important; }
     h2,h3 { font-family: 'Brush Script MT', cursive; letter-spacing:1px; }
@@ -27,21 +50,25 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-<!-- HEADER -->
-<header class="sticky top-0 z-30 bg-maroon-histonesia shadow-md">
+<!-- Navbar sama dengan timeline -->
+<header class="z-30 fixed top-0 left-0 w-full bg-[#5B0000] shadow-md">
   <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
-    <h1 class="text-xl font-bold text-white">Histonesia</h1>
+    <h1 class="text-xl font-bold text-[#FFD700]">Histonesia</h1>
     <nav class="space-x-4">
-      <a href="#" class="text-white hover:text-yellow-200">Beranda</a>
-      <a href="#" class="text-white hover:text-yellow-200">Timeline</a>
-      <a href="#" class="text-white hover:text-yellow-200">Tentang</a>
+      <a href="index.html" class="text-[#FFD700] hover:text-white">Beranda</a>
+      <a href="timeline.html" class="text-[#FFD700] hover:text-white">Timeline</a>
+      <a href="tokoh.html" class="text-[#FFD700] hover:text-white">Tokoh</a>
+      <a href="tentang.html" class="text-[#FFD700] hover:text-white">Tentang</a>
     </nav>
   </div>
 </header>
 
+<!-- Tombol kembali ke timeline -->
+  <a href="timeline.html" class="back-btn">◄</a>
+
 <!-- MAIN -->
-<main class="flex-grow container mx-auto px-4 py-10">
-  <h2 class="text-maroon-histonesia text-4xl md:text-5xl font-bold text-center mb-12">
+<main class="flex-grow container mx-auto px-4 py-20">
+  <h2 class="text-maroon-histonesia text-4xl md:text-5xl font-bold text-center mb-11">
     Tokoh-Tokoh pada Masa Kemerdekaan
   </h2>
 
