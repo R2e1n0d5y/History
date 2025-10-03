@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HISTONESIA - Tokoh</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { 'maroon-histonesia': '#5B0000' }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Courier New', Courier, monospace; background:#f5f5f5; }
+    header, header *, footer, footer * { font-family: 'Georgia', serif !important; }
+    h2,h3 { font-family: 'Brush Script MT', cursive; letter-spacing:1px; }
+    .modal { display:none; }
+    .modal.show { display:flex; animation:fadeIn 0.28s ease; }
+    @keyframes fadeIn { from {opacity:0; transform:translateY(8px)} to {opacity:1; transform:none} }
+    .bio-content li { margin-bottom:0.5rem; text-align:justify; line-height:1.6; }
+    .funfact-content li { margin-bottom:0.5rem; line-height:1.6; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-30 bg-maroon-histonesia shadow-md">
+  <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+    <h1 class="text-xl font-bold text-white">Histonesia</h1>
+    <nav class="space-x-4">
+      <a href="#" class="text-white hover:text-yellow-200">Beranda</a>
+      <a href="#" class="text-white hover:text-yellow-200">Timeline</a>
+      <a href="#" class="text-white hover:text-yellow-200">Tentang</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="flex-grow container mx-auto px-4 py-10">
+  <h2 class="text-maroon-histonesia text-4xl md:text-5xl font-bold text-center mb-12">
+    Tokoh-Tokoh pada Masa Kemerdekaan
+  </h2>
+
+  <!-- GALERI -->
+  <div id="gallery" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+    <!-- Cards via JS -->
+  </div>
+</main>
+
+<!-- MODAL -->
+<div id="modal" class="modal fixed inset-0 bg-black bg-opacity-70 justify-center items-start p-6 z-50">
+  <div class="bg-white rounded-2xl shadow-xl max-w-3xl w-full relative overflow-hidden">
+    <button id="closeBtn" class="absolute top-3 right-4 text-gray-600 text-3xl font-bold hover:text-maroon-histonesia">&times;</button>
+    <div class="bg-maroon-histonesia text-white p-6">
+      <h2 id="modal-name" class="text-2xl font-bold"></h2>
+      <p id="modal-singkat" class="text-sm text-red-100"></p>
+    </div>
+    <div class="p-6 max-h-[70vh] overflow-y-auto space-y-6">
+      <div>
+        <h3 class="text-lg font-bold text-maroon-histonesia mb-2">Biografi Singkat</h3>
+        <ul id="modal-bio" class="bio-content list-disc pl-6 text-gray-800"></ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-maroon-histonesia mb-2">Fun Fact</h3>
+        <ul id="modal-funfact" class="funfact-content list-disc pl-6 text-gray-600 italic"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="mt-auto bg-maroon-histonesia shadow-inner">
+  <div class="max-w-6xl mx-auto text-center p-4 text-white">
+    © 2025 Histonesia. Semua hak cipta dilindungi.
+  </div>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+/* ==================== DATA 20 TOKOH ==================== */
+const tokohList = [
+  {
+    key:"soekarno",
+    nama:"Ir. Soekarno",
+    singkat:"Proklamator & Presiden pertama",
+    bio:[
+      "Ir. Soekarno lahir pada 6 Juni 1901 di Surabaya. Sejak kecil ia dikenal cerdas dan penuh rasa ingin tahu.",
+      "Saat kuliah di Bandung, ia aktif di pergerakan mahasiswa dan mendirikan Partai Nasional Indonesia (PNI).",
+      "Sebagai orator karismatik, ia mampu menyatukan berbagai kelompok bangsa Indonesia.",
+      "Pada 17 Agustus 1945, bersama Mohammad Hatta, ia memproklamasikan kemerdekaan Indonesia.",
+      "Soekarno kemudian menjadi Presiden pertama Republik Indonesia hingga wafat pada 21 Juni 1970."
+    ],
+    funfact:[
+      "Dijuluki 'Putra Fajar' karena lahir saat matahari terbit.",
+      "Sangat menyukai seni tari dan musik tradisional.",
+      "Pidato-pidatonya mampu membakar semangat rakyat."
+    ]
+  },
+  {
+    key:"hatta",
+    nama:"Drs. Mohammad Hatta",
+    singkat:"Proklamator & Wakil Presiden pertama",
+    bio:[
+      "Mohammad Hatta lahir di Bukittinggi pada 12 Agustus 1902 dan menempuh pendidikan tinggi di Belanda.",
+      "Sejak muda ia aktif dalam organisasi pelajar Indonesia di Eropa dan memperjuangkan kemerdekaan.",
+      "Ia dikenal sebagai pemikir ekonomi kerakyatan yang kuat.",
+      "Pada 17 Agustus 1945, ia mendampingi Soekarno dalam memproklamasikan kemerdekaan.",
+      "Hatta kemudian menjadi Wakil Presiden pertama RI dan wafat pada 14 Maret 1980."
+    ],
+    funfact:[
+      "Dikenal sangat hemat dan sederhana.",
+      "Gemar membaca dan mengoleksi buku.",
+      "Disebut sebagai 'Bapak Koperasi Indonesia'."
+    ]
+  },
+  {
+    key:"soebardjo",
+    nama:"Achmad Soebardjo",
+    singkat:"Diplomat & Menlu pertama",
+    bio:[
+      "Achmad Soebardjo lahir pada 23 Maret 1896 dan menempuh pendidikan hukum di Belanda.",
+      "Ia aktif dalam pergerakan mahasiswa perantauan dan menjalin jaringan dengan tokoh kemerdekaan.",
+      "Soebardjo ikut terlibat langsung dalam persiapan Proklamasi 17 Agustus 1945.",
+      "Setelah kemerdekaan, ia diangkat sebagai Menteri Luar Negeri pertama Republik Indonesia.",
+      "Ia wafat pada 15 Desember 1978."
+    ],
+    funfact:[
+      "Sangat disegani karena kepiawaiannya berdiplomasi.",
+      "Pernah ditahan Belanda karena aktivitas politiknya.",
+      "Suka menulis tentang politik dan hukum."
+    ]
+  },
+  {
+    key:"syahrir",
+    nama:"Sutan Sjahrir",
+    singkat:"Perdana Menteri pertama",
+    bio:[
+      "Sutan Sjahrir lahir pada 5 Maret 1909 dan dikenal sebagai intelektual muda yang visioner.",
+      "Ia aktif di organisasi pergerakan dan memperjuangkan demokrasi serta keadilan sosial.",
+      "Pada masa awal kemerdekaan, ia ditunjuk sebagai Perdana Menteri pertama Indonesia.",
+      "Ia banyak berperan dalam diplomasi internasional untuk pengakuan kedaulatan Indonesia.",
+      "Sjahrir wafat pada 9 April 1966."
+    ],
+    funfact:[
+      "Dibuang ke Banda Neira oleh Belanda pada masa pergerakan.",
+      "Dikenal sederhana dan idealis.",
+      "Suka berdiskusi tentang filsafat dan politik."
+    ]
+  },
+  {
+    key:"yamin",
+    nama:"Mohammad Yamin",
+    singkat:"Sastrawan & Perumus Konstitusi",
+    bio:[
+      "Mohammad Yamin lahir pada 24 Agustus 1903 dan dikenal sebagai sastrawan, sejarawan, sekaligus politisi.",
+      "Ia aktif memperjuangkan bahasa Indonesia sebagai bahasa persatuan sejak Sumpah Pemuda 1928.",
+      "Yamin termasuk tokoh BPUPKI yang mengusulkan dasar negara dan ikut merancang UUD 1945.",
+      "Selain di politik, ia juga banyak menulis karya sastra dan sejarah kebangsaan.",
+      "Ia wafat pada 17 Oktober 1962 di Jakarta."
+    ],
+    funfact:[
+      "Penulis puisi terkenal 'Tanah Air'.",
+      "Sangat produktif menulis.",
+      "Mempromosikan sejarah dan budaya bangsa."
+    ]
+  },
+  {
+    key:"supomo",
+    nama:"Prof. Mr. Soepomo",
+    singkat:"Perancang UUD 1945",
+    bio:[
+      "Soepomo lahir pada 22 Januari 1903 di Sukoharjo, Jawa Tengah.",
+      "Ia belajar hukum dan dikenal sebagai ahli hukum adat.",
+      "Sebagai anggota BPUPKI, ia menjadi perancang utama UUD 1945.",
+      "Pemikirannya banyak memengaruhi dasar hukum Indonesia.",
+      "Ia wafat pada 12 September 1958."
+    ],
+    funfact:[
+      "Pendiri ilmu hukum adat.",
+      "Suka diskusi filsafat.",
+      "Dikenal sederhana."
+    ]
+  },
+  {
+    key:"radjiman",
+    nama:"Dr. Radjiman Wedyodiningrat",
+    singkat:"Ketua BPUPKI",
+    bio:[
+      "Radjiman lahir pada 21 April 1879 dan berprofesi sebagai dokter.",
+      "Ia aktif dalam pergerakan nasional dan dipercaya menjadi Ketua BPUPKI.",
+      "Dalam sidang, ia membuka pembahasan dasar negara Indonesia merdeka.",
+      "Dihormati karena kebijaksanaannya sebagai tokoh tua.",
+      "Ia wafat pada 20 September 1952."
+    ],
+    funfact:[
+      "Dihormati generasi muda karena kebijaksanaannya.",
+      "Tokoh tua yang menjadi mediator.",
+      "Tetap aktif di masyarakat sebagai dokter."
+    ]
+  },
+  {
+    key:"sayuti",
+    nama:"Sayuti Melik",
+    singkat:"Pengetik naskah Proklamasi",
+    bio:[
+      "Sayuti Melik lahir pada 22 November 1908 di Sleman, Yogyakarta.",
+      "Ia aktif dalam pergerakan pemuda dan dikenal berani.",
+      "Pada malam 17 Agustus 1945, ia dipercaya mengetik naskah Proklamasi.",
+      "Ia juga ikut mengubah beberapa redaksi penting dalam naskah.",
+      "Sayuti Melik wafat pada 27 Februari 1989."
+    ],
+    funfact:[
+      "Ikut mengubah redaksi naskah Proklamasi.",
+      "Suka menulis dan jurnalisme.",
+      "Dekat dengan tokoh pemuda."
+    ]
+  },
+  {
+    key:"sukarni",
+    nama:"Sukarni Kartodiwirjo",
+    singkat:"Aktivis pemuda",
+    bio:[
+      "Sukarni lahir pada 14 Juli 1916 di Blitar.",
+      "Ia menjadi salah satu pemimpin peristiwa Rengasdengklok.",
+      "Ia mendesak Soekarno-Hatta segera memproklamasikan kemerdekaan.",
+      "Aktif di dunia politik pasca merdeka.",
+      "Ia wafat pada 7 Mei 1971."
+    ],
+    funfact:[
+      "Pemberani dan vokal.",
+      "Pemuda radikal.",
+      "Kritis terhadap tokoh tua."
+    ]
+  },
+  {
+    key:"wikana",
+    nama:"Wikana",
+    singkat:"Tokoh pemuda",
+    bio:[
+      "Wikana adalah salah satu pemuda Menteng 31 yang vokal.",
+      "Ia ikut dalam penculikan Soekarno-Hatta ke Rengasdengklok.",
+      "Wikana berperan penting dalam mendesak proklamasi segera dilakukan.",
+      "Setelah proklamasi ia tetap aktif dalam mobilisasi pemuda.",
+      "Ia meninggal pada tahun 1966."
+    ],
+    funfact:[
+      "Pemuda paling keras mendesak proklamasi.",
+      "Dikenal suka orasi.",
+      "Berani menghadapi tokoh tua."
+    ]
+  },
+  {
+    key:"chairul",
+    nama:"Chairul Saleh",
+    singkat:"Aktivis & Politikus",
+    bio:[
+      "Chairul Saleh lahir pada 13 September 1916 di Sawahlunto, Sumatera Barat.",
+      "Ia aktif dalam pergerakan pemuda sebelum proklamasi.",
+      "Dekat dengan Soekarno dan menjadi salah satu tokoh penting pada masanya.",
+      "Ia pernah menjabat sebagai Menteri penting di pemerintahan.",
+      "Chairul Saleh wafat pada 8 Februari 1967."
+    ],
+    funfact:[
+      "Aktif di organisasi pemuda.",
+      "Orator ulung.",
+      "Dekat dengan Sukarno."
+    ]
+  },
+  {
+    key:"maeda",
+    nama:"Laksamana Tadashi Maeda",
+    singkat:"Perwira Jepang",
+    bio:[
+      "Tadashi Maeda lahir pada 1898 di Jepang.",
+      "Ia adalah perwira Angkatan Laut Jepang yang bersimpati pada perjuangan Indonesia.",
+      "Rumahnya digunakan sebagai tempat penyusunan naskah Proklamasi.",
+      "Meski perwira Jepang, ia membantu kelancaran proklamasi.",
+      "Ia wafat pada 1977."
+    ],
+    funfact:[
+      "Rumahnya menjadi saksi sejarah Proklamasi.",
+      "Tokoh Jepang yang dihormati Indonesia.",
+      "Dikenang karena keberpihakannya."
+    ]
+  },
+  {
+    key:"latief",
+    nama:"Latief Hendraningrat",
+    singkat:"Pengibar Bendera Pusaka",
+    bio:[
+      "Latief Hendraningrat lahir pada 1920-an dan bergabung dengan tentara PETA.",
+      "Pada 17 Agustus 1945, ia menjadi pengibar Sang Saka Merah Putih.",
+      "Setelah itu ia aktif di militer hingga berpangkat tinggi.",
+      "Dikenang sebagai sosok pemberani.",
+      "Ia wafat pada 1983."
+    ],
+    funfact:[
+      "Pengibar pertama Sang Saka.",
+      "Disiplin dan pemberani.",
+      "Tokoh penting di militer."
+    ]
+  },
+  {
+    key:"suhud",
+    nama:"Suhud Sastro Kusumo",
+    singkat:"Pengatur tiang bendera",
+    bio:[
+      "Suhud adalah pemuda PETA yang bertugas menyiapkan upacara proklamasi.",
+      "Ia membuat tiang bendera dari bambu pekarangan rumah.",
+      "Pada 17 Agustus, ia ikut mengibarkan Sang Saka.",
+      "Perannya sederhana namun sangat penting.",
+      "Ia wafat pada 1970-an."
+    ],
+    funfact:[
+      "Tiang bendera dari bambu sederhana.",
+      "Kerjanya krusial meski jarang disebut.",
+      "Simbol perjuangan rakyat kecil."
+    ]
+  },
+  {
+    key:"pudja",
+    nama:"I Gusti Ketut Pudja",
+    singkat:"Anggota PPKI & Gubernur",
+    bio:[
+      "Pudja lahir pada 19 Mei 1908 di Bali.",
+      "Ia menjadi anggota PPKI dan ikut merumuskan dasar negara.",
+      "Setelah kemerdekaan, ia diangkat menjadi Gubernur Sunda Kecil pertama.",
+      "Ia banyak berperan mengonsolidasi wilayah Bali dan Nusa Tenggara.",
+      "Ia wafat pada 4 Mei 1977."
+    ],
+    funfact:[
+      "Tokoh Bali pertama di PPKI.",
+      "Membawa semangat daerah timur.",
+      "Disegani masyarakat Bali."
+    ]
+  },
+  {
+    key:"frans",
+    nama:"Frans Mendur",
+    singkat:"Fotografer Proklamasi",
+    bio:[
+      "Frans Mendur lahir pada 16 April 1913 di Manado.",
+      "Ia menjadi fotografer yang mengabadikan momen Proklamasi.",
+      "Tanpa karyanya, dunia mungkin tidak melihat detik bersejarah itu.",
+      "Ia kemudian ikut mendirikan kantor berita foto IPPHOS.",
+      "Frans wafat pada 1971."
+    ],
+    funfact:[
+      "Foto proklamasi terkenal darinya.",
+      "Pelopor jurnalis foto.",
+      "Suka fotografi sejak muda."
+    ]
+  },
+  {
+    key:"alex",
+    nama:"Alex Mendur",
+    singkat:"Fotografer Proklamasi",
+    bio:[
+      "Alex Mendur lahir pada 7 November 1907 di Manado.",
+      "Bersama adiknya Frans, ia mengabadikan proklamasi.",
+      "Ia termasuk wartawan foto senior Indonesia.",
+      "Ikut mendirikan IPPHOS setelah kemerdekaan.",
+      "Alex wafat pada 1959."
+    ],
+    funfact:[
+      "Bersaudara fotografer legendaris.",
+      "Ikut mengabadikan proklamasi.",
+      "Pionir jurnalis foto Indonesia."
+    ]
+  },
+  {
+    key:"kasman",
+    nama:"Mr. Kasman Singodimedjo",
+    singkat:"Ketua KNIP & Jaksa Agung",
+    bio:[
+      "Kasman lahir pada 25 Februari 1904 di Purworejo.",
+      "Ia aktif di organisasi Islam dan dunia politik.",
+      "Setelah kemerdekaan, ia menjabat sebagai Ketua KNIP pertama.",
+      "Ia juga pernah menjabat sebagai Jaksa Agung RI.",
+      "Kasman wafat pada 25 Oktober 1982."
+    ],
+    funfact:[
+      "Aktif di Muhammadiyah.",
+      "Pembicara lugas dan tegas.",
+      "Tokoh hukum berintegritas."
+    ]
+  },
+  {
+    key:"amir",
+    nama:"Amir Sjarifuddin",
+    singkat:"Perdana Menteri & Tokoh Kiri",
+    bio:[
+      "Amir Sjarifuddin lahir pada 1907 di Sumatera Utara.",
+      "Ia aktif di gerakan kiri dan dikenal berani.",
+      "Pada masa revolusi, ia menjadi Perdana Menteri.",
+      "Ia terlibat dalam konflik politik pada 1948.",
+      "Amir wafat pada 19 Desember 1948."
+    ],
+    funfact:[
+      "Pemimpin kelompok kiri.",
+      "Pernah jadi wartawan.",
+      "Berani melawan Belanda."
+    ]
+  }
+];
+
+/* ============== RENDER CARD ============== */
+const gallery = document.getElementById("gallery");
+tokohList.forEach(tokoh=>{
+  const div=document.createElement("div");
+  div.className="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl cursor-pointer transition";
+  div.innerHTML=`
+    <div class="p-4">
+      <h3 class="text-lg font-bold text-maroon-histonesia mb-2">${tokoh.nama}</h3>
+      <p class="text-gray-600 text-sm">${tokoh.singkat}</p>
+    </div>
+  `;
+  div.onclick=()=>openModal(tokoh);
+  gallery.appendChild(div);
+});
+
+/* ============== MODAL HANDLER ============== */
+const modal=document.getElementById("modal");
+const closeBtn=document.getElementById("closeBtn");
+function openModal(tokoh){
+  document.getElementById("modal-name").innerText=tokoh.nama;
+  document.getElementById("modal-singkat").innerText=tokoh.singkat;
+  const bio=document.getElementById("modal-bio");
+  bio.innerHTML="";
+  tokoh.bio.forEach(b=>{let li=document.createElement("li"); li.innerText=b; bio.appendChild(li);});
+  const fun=document.getElementById("modal-funfact");
+  fun.innerHTML="";
+  tokoh.funfact.forEach(f=>{let li=document.createElement("li"); li.innerText=f; fun.appendChild(li);});
+  modal.classList.add("show");
+}
+closeBtn.onclick=()=>modal.classList.remove("show");
+modal.onclick=(e)=>{if(e.target===modal) modal.classList.remove("show");}
+</script>
+
+</body>
+</html>
