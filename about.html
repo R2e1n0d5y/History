@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Us - Histonesia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { 'maroon-histonesia': '#5B0000' }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Courier New', Courier, monospace; background:#f5f5f5; }
+    header, header *, footer, footer * { font-family: 'Georgia', serif !important; }
+    h2,h3 { font-family: 'Brush Script MT', cursive; letter-spacing:1px; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-30 bg-maroon-histonesia shadow-md">
+  <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+    <h1 class="text-[#FFD700] hover:text-white text-xl font-bold">Histonesia</h1>
+    <nav class="space-x-4">
+      <a href="timeline.html" class="text-[#FFD700] hover:text-white">Timeline</a>
+      <a href="index.html" class="text-[#FFD700] hover:text-white">Beranda</a>
+      <a href="tokoh.html" class="text-[#FFD700] hover:text-white">Tokoh</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="flex-grow container mx-auto px-4 py-12">
+  <h2 class="text-maroon-histonesia text-4xl md:text-5xl font-bold text-center mb-12">
+    Tentang Kami
+  </h2>
+
+  <!-- Members -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12">
+    <!-- Alysa -->
+    <div class="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-xl transition">
+      <img src="img/alysa.jpeg" alt="Alysa Meliana" class="w-32 h-32 object-cover rounded-full mx-auto mb-4 shadow">
+      <h3 class="text-2xl font-bold text-maroon-histonesia mb-2">Alysa Meliana</h3>
+      <p class="text-gray-600 mb-1">Web Developer</p>
+      <p class="text-gray-600 mb-1">Instagram: <a href="https://instagram.com/alysamln.a__" target="_blank" class="text-blue-600 hover:underline">@alysamln.a__</a></p>
+      <p class="text-gray-600">Email: <a href="mailto:alysameliana647@gmail.com" class="text-blue-600 hover:underline">alysameliana647@gmail.com</a></p>
+      <p class="text-gray-600 mb-1">Universitas Mataram</p>
+    </div>
+
+    <!-- Rendi (tengah) -->
+    <div class="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-xl transition">
+      <img src="img/ren.webp" alt="Muhammad Rendi Maulana" class="w-32 h-32 object-cover rounded-full mx-auto mb-4 shadow">
+      <h3 class="text-2xl font-bold text-maroon-histonesia mb-2">Muhammad Rendi Maulana</h3>
+      <p class="text-gray-600 mb-1">Project Manager</p>
+      <p class="text-gray-600 mb-1">Instagram: <a href="https://instagram.com/mrendimaulana22" target="_blank" class="text-blue-600 hover:underline">@mrendimaulana22</a></p>
+      <p class="text-gray-600">Email: <a href="mailto:mrendimaulana@gmail.com" class="text-blue-600 hover:underline">mrendimaulana22@gmail.com</a></p>
+      <p class="text-gray-600 mb-1">Universitas Mataram</p>
+    </div>
+
+    <!-- Izza -->
+    <div class="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-xl transition">
+      <img src="img/izza.jpeg" alt="Robi'atul Izzati" class="w-32 h-32 object-cover rounded-full mx-auto mb-4 shadow">
+      <h3 class="text-2xl font-bold text-maroon-histonesia mb-2">Robi'atul Izzati</h3>
+      <p class="text-gray-600 mb-1">Web Developer</p>
+      <p class="text-gray-600 mb-1">Instagram: <a href="https://instagram.com/r.izzatiy_" target="_blank" class="text-blue-600 hover:underline">@r.izzatiy_</a></p>
+      <p class="text-gray-600">Email: <a href="mailto:robiatulizzatiy@gmail.com" class="text-blue-600 hover:underline">robiatulizzatiy@gmail.com</a></p>
+      <p class="text-gray-600 mb-1">Universitas Mataram</p>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="mt-auto bg-maroon-histonesia shadow-inner">
+  <div class="max-w-6xl mx-auto text-center p-4 text-[#FFD700]">
+    © 2025 Histonesia. Semua hak cipta dilindungi.
+  </div>
+</footer>
+
+</body>
+</html>

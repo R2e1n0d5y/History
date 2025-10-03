@@ -34,10 +34,10 @@
   /* Kotak video dengan sudut tajam */
   .video-box {
     position: absolute;
-    top: 125px;     /* sesuaikan posisi */
-    left: 380px;    /* sesuaikan posisi */
-    width: 530px;   /* lebar tetap */
-    height: 265px;  /* tinggi tetap */
+    top: 0px;     
+    left: 0px;    
+    width: 1280px;   
+    height: 525px;  
     background: white;
     box-shadow: 0 6px 20px rgba(0,0,0,0.4);
   }
@@ -46,51 +46,50 @@
     width: 100%;
     height: 100%;
   }
-    .story-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-    }
 
-    .back-btn {
-      position: fixed;
-      top: 50%;
-      left: 20px;
-      transform: translateY(-50%);
-      background: #5B0000;
-      color: white;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s;
-      z-index: 50;
-    }
-        .back-btn:hover {
-      background: #FFD700; /* hover emas */
-      color: #000;
-    }
+  /* Tombol kembali */
+  .back-btn {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: #5B0000;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    z-index: 50;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  .back-btn:hover {
+    background: #FFD700; /* hover emas */
+    color: #000;
+  }
 </style>
 </head>
 <body>
-  <!-- Tombol kembali ke timeline -->
-  <a href="timeline.html" class="back-btn">
-    ◄
-  </a>
+
+<!-- Tombol kembali -->
+<a href="timeline.html" class="back-btn">◄</a>
 <header class="z-30 relative shadow-md">
   <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
     <h1 class="text-xl font-bold text-[#FFD700]">Histonesia</h1>
     <nav class="space-x-4">
-      <a href="index.html" class="text-[#FFD700] hover:text-white">Beranda</a>
       <a href="timeline.html" class="text-[#FFD700] hover:text-white">Timeline</a>
       <a href="tokoh.html" class="text-[#FFD700] hover:text-white">Tokoh</a>
-      <a href="quiz.html" class="text-[#FFD700] hover:text-white">Quiz</a>
+      <a href="quiz.php" class="text-[#FFD700] hover:text-white">Quiz</a>
+      <a href="about.html" class="text-[#FFD700] hover:text-white">About</a>
     </nav>
   </div>
 </header>
 
 <main>
   <div class="video-box">
-    <video controls>
-      <source src="img/videoku.mp4" type="video/mp4">
+    <video autoplay muted loop controls>
+      <source src="img/golmud.mp4" type="video/mp4">
       Browser tidak mendukung video.
     </video>
   </div>

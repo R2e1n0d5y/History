@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Histonesia</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Font khusus untuk navbar dan footer */
+    header, header *, footer, footer * {
+      font-family: 'Georgia', serif !important;
+    }
+  </style>
 </head>
 <body class="min-h-screen flex flex-col relative overflow-hidden">
 
@@ -16,14 +23,14 @@
   <!-- Overlay putih tipis -->
   <div class="absolute inset-0 bg-white/30 -z-10"></div>
 
-  <!-- Navbar coklat transparan -->
-  <header class="z-30 relative bg-[#5B0000]/80 shadow-md">
+  <!-- Navbar maroon -->
+  <header class="z-30 relative bg-[#5B0000] shadow-md">
     <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
-      <h1 class="text-xl font-bold text-white">Histonesia</h1>
+      <h1 class="text-[#FFD700] hover:text-white text-xl font-bold">Histonesia</h1>
       <nav class="space-x-4">
-        <a href="#" class="text-white hover:text-yellow-200">Beranda</a>
-        <a href="#" class="text-white hover:text-yellow-200">Materi</a>
-        <a href="#" class="text-white hover:text-yellow-200">Tentang</a>
+        <a href="timeline.html" class="text-[#FFD700] hover:text-white">Timeline</a>
+        <a href="tokoh.html" class="text-[#FFD700] hover:text-white">Tokoh</a>
+        <a href="about.html" class="text-[#FFD700] hover:text-white">About</a>
       </nav>
     </div>
   </header>
@@ -44,9 +51,9 @@
     </a>
   </main>
 
-  <!-- Footer coklat transparan -->
-  <footer class="mt-auto z-30 bg-[#5B0000]/80 shadow-inner">
-    <div class="max-w-6xl mx-auto text-center p-4 text-white">
+  <!-- Footer maroon -->
+  <footer class="mt-auto z-30 bg-[#5B0000] shadow-inner">
+    <div class="max-w-6xl mx-auto text-center p-4 text-[#FFD700]">
       © 2025 Histonesia. Semua hak cipta dilindungi.
     </div>
   </footer>
