@@ -48,7 +48,6 @@
       box-shadow: 0 12px 30px rgba(0,0,0,0.3);
     }
 
-    /* Tombol kembali bundar */
     .back-btn {
       position: fixed;
       top: 50%;
@@ -56,18 +55,16 @@
       transform: translateY(-50%);
       background: #5B0000;
       color: white;
-      font-size: 1.5rem;
-      padding: 0.5rem 0.9rem;
+      padding: 10px;
       border-radius: 50%;
-      text-decoration: none;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
+      cursor: pointer;
+      transition: background 0.3s;
       z-index: 50;
     }
+
     .back-btn:hover {
-      background: #FFD700;
-      color: #5B0000;
-      transform: translateY(-50%) scale(1.2);
+      background: #FFD700; /* hover emas */
+      color: #000;
     }
 
     .fade-in {
@@ -97,7 +94,9 @@
   </header>
 
   <!-- Tombol kembali ke timeline -->
-  <a href="timeline.html" class="back-btn">◄</a>
+  <a href="timeline.html" class="back-btn">
+    ◄
+  </a>
 
   <!-- Konten Pra Proklamasi -->
   <main class="flex-1 max-w-6xl mx-auto p-6 space-y-20">

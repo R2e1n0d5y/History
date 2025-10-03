@@ -26,26 +26,27 @@
       color: #222;
     }
 
-    /* Tombol kembali bulat */
-    .back-button {
+    .story-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    }
+
+    .back-btn {
       position: fixed;
       top: 50%;
       left: 20px;
       transform: translateY(-50%);
       background: #5B0000;
       color: white;
-      font-size: 1.7rem;
-      padding: 0.5rem 0.9rem;
+      padding: 10px;
       border-radius: 50%;
-      text-decoration: none;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
-      z-index: 60;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 50;
     }
-    .back-button:hover {
-      background: #FFD700;
-      color: #5B0000;
-      transform: translateY(-50%) scale(1.2);
+        .back-btn:hover {
+      background: #FFD700; /* hover emas */
+      color: #000;
     }
 
     header{
@@ -142,8 +143,10 @@
 </head>
 <body>
 
-  <!-- Tombol kembali -->
-  <a href="timeline.html" class="back-button" title="Kembali ke Timeline" aria-label="Kembali ke Timeline">◄</a>
+    <!-- Tombol kembali ke timeline -->
+  <a href="timeline.html" class="back-btn">
+    ◄
+  </a>
 
   <!-- Header -->
   <header class="shadow-md">

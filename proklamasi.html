@@ -45,10 +45,32 @@
       padding: 1.5rem;
       overflow-y: auto;
     }
+        .back-btn {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      background: #5B0000;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 50;
+    }
+
+    .back-btn:hover {
+      background: #FFD700; /* hover emas */
+      color: #000;
+    }
   </style>
 </head>
 <body>
-
+  <!-- Tombol kembali ke timeline -->
+  <a href="timeline.html" class="back-btn">
+    ◄
+  </a>
+  
   <!-- header -->
   <header class="shadow-md">
     <div class="max-w-6xl mx-auto flex items-center justify-between p-4">

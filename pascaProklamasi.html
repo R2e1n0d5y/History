@@ -32,23 +32,23 @@
       background: var(--accent);
     }
 
-    /* Tombol kembali */
-    .back-button {
+    .back-btn {
       position: fixed;
       top: 50%;
-      left: 18px;
+      left: 20px;
       transform: translateY(-50%);
-      width: 0;
-      height: 0;
-      border-top: 20px solid transparent;
-      border-bottom: 20px solid transparent;
-      border-right: 30px solid var(--accent);
+      background: #5B0000;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
       cursor: pointer;
-      z-index: 60;
-      transition: transform .18s ease;
+      transition: background 0.3s;
+      z-index: 50;
     }
-    .back-button:hover {
-      transform: translateY(-50%) scale(1.05);
+
+    .back-btn:hover {
+      background: #FFD700; /* hover emas */
+      color: #000;
     }
 
     .biru {
@@ -58,8 +58,10 @@
 </head>
 <body>
 
-  <!-- tombol kembali -->
-  <a href="timeline.html" class="back-button" title="Kembali ke Timeline" aria-label="Kembali ke Timeline"></a>
+    <!-- Tombol kembali ke timeline -->
+  <a href="timeline.html" class="back-btn">
+    ◄
+  </a>
 
   <!-- header -->
   <header class="shadow-md">
