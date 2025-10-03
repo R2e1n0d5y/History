@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Histonesia - Golongan Tua</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'maroon-histonesia': '#5B0000',
+            'paper-brown': '#f4e1c1'
+          },
+          fontFamily: {
+            'judul': ['"Brush Script MT"', 'cursive'],
+            'isi': ['Georgia', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background: url('img/paper-texture.jpg') repeat;
+      background-size: cover;
+      font-family: Georgia, serif;
+      color: #2c1810;
+    }
+
+    .story-card {
+      background: rgba(244, 225, 193, 0.9);
+      border: 2px solid #FFD700; /* pakai emas */
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      margin: 0px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .story-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      background: #5B0000;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 50;
+    }
+
+    .back-btn:hover {
+      background: #FFD700; /* hover emas */
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tombol kembali ke timeline -->
+  <a href="timeline.html" class="back-btn">
+    ◄
+  </a>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 bg-maroon-histonesia shadow-md z-40">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-xl font-bold" style="color:#FFD700;">Histonesia</h1>
+      <nav class="space-x-4">
+        <a href="index.html" style="color:#FFD700;" class="hover:text-white">Beranda</a>
+        <a href="timeline.html" style="color:#FFD700;" class="hover:text-white">Timeline</a>
+        <a href="tokoh.html" style="color:#FFD700;" class="hover:text-white">Tokoh</a>
+        <a href="tentang.html" style="color:#FFD700;" class="hover:text-white">Tentang</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Konten Utama -->
+  <main class="container mx-auto px-6 pt-32 pb-32 mb-20" style="padding: 0px 70px;">
+    <h2 class="text-5xl text-center font-judul text-maroon-histonesia mb-12 mt-12">
+      Golongan Tua
+    </h2>
+
+    <!-- 3 Card Golongan Tua -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Card Pertama -->
+      <div class="story-card flex flex-col items-center text-center">
+        <img src="img/golonganTua1.jpg" alt="Pertimbangan Matang" class="w-full h-48 object-cover rounded-md mb-4">
+        <h3 class="text-2xl font-bold text-maroon-histonesia mb-2">Pertimbangan Matang</h3>
+        <p class="text-base leading-relaxed text-justify">
+          Kami, para golongan tua, meyakini bahwa proklamasi harus dilakukan dengan penuh perhitungan. 
+          Langkah yang terburu-buru berisiko menimbulkan pertumpahan darah, sehingga kami menekankan 
+          pentingnya menunggu sidang PPKI agar kemerdekaan memiliki legitimasi.
+        </p>
+      </div>
+
+      <!-- Card Kedua -->
+      <div class="story-card flex flex-col items-center text-center">
+        <img src="img/golonganTua2.jpg" alt="Suara Kewibawaan" class="w-full h-48 object-cover rounded-md mb-4">
+        <h3 class="text-2xl font-bold text-maroon-histonesia mb-2">Suara Kewibawaan</h3>
+        <p class="text-base leading-relaxed text-justify">
+          Kami percaya bahwa kemerdekaan tidak hanya butuh semangat, tetapi juga wibawa di mata dunia. 
+          Dengan diplomasi, kami berusaha memastikan pengakuan internasional, sambil menenangkan desakan 
+          kaum muda yang ingin segera memproklamasikan.
+        </p>
+      </div>
+
+      <!-- Card Ketiga -->
+      <div class="story-card flex flex-col items-center text-center">
+        <img src="img/golonganTua3.jpg" alt="Menjaga Momentum" class="w-full h-48 object-cover rounded-md mb-4">
+        <h3 class="text-2xl font-bold text-maroon-histonesia mb-2">Menjaga Momentum</h3>
+        <p class="text-base leading-relaxed text-justify">
+          Kami tidak menolak kemerdekaan, tetapi ingin memastikan bahwa momentum yang dipilih 
+          adalah saat yang paling tepat. Dengan menunggu Jepang benar-benar menyerah, 
+          proklamasi dapat berlangsung aman dan sah di mata dunia.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-maroon-histonesia text-center py-6 mt-10" style="color:#FFD700;">
+    © 2025 Histonesia. Semua hak cipta dilindungi.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histonesia Video Fixed</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('img/latar.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header, footer {
+    background-color: rgb(91, 0, 0);
+    position: relative;
+    z-index: 10;
+  }
+
+  main {
+    flex-grow: 1;
+    position: relative;
+    z-index: 5;
+  }
+
+  /* Kotak video dengan sudut tajam */
+  .video-box {
+    position: absolute;
+    top: 125px;     /* sesuaikan posisi */
+    left: 380px;    /* sesuaikan posisi */
+    width: 530px;   /* lebar tetap */
+    height: 265px;  /* tinggi tetap */
+    background: white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+
+  .video-box video {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+</head>
+<body>
+
+<header class="z-30 relative shadow-md">
+  <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+    <h1 class="text-xl font-bold text-[#FFD700]">Histonesia</h1>
+    <nav class="space-x-4">
+      <a href="index.html" class="text-[#FFD700] hover:text-white">Beranda</a>
+      <a href="timeline.html" class="text-[#FFD700] hover:text-white">Timeline</a>
+      <a href="tokoh.html" class="text-[#FFD700] hover:text-white">Tokoh</a>
+      <a href="quiz.html" class="text-[#FFD700] hover:text-white">Quiz</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="video-box">
+    <video controls>
+      <source src="img/videoku.mp4" type="video/mp4">
+      Browser tidak mendukung video.
+    </video>
+  </div>
+</main>
+
+<footer class="mt-auto z-30 bg-[#5B0000] shadow-inner w-full">
+  <div class="text-center p-4 text-[#FFD700]">
+    © 2025 Histonesia. Semua hak cipta dilindungi.
+  </div>
+</footer>
+
+</body>
+</html>
